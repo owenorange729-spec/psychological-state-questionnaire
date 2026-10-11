@@ -1,0 +1,73 @@
+/* The PNGs are direct crops from the supplied reference sheet. Their printed
+   frames are part of each image and are intentionally preserved. */
+.options {
+  gap: 16px;
+}
+
+.option {
+  border: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 10px;
+}
+
+.option:hover {
+  border: 0 !important;
+  background: rgba(230, 240, 239, .55) !important;
+  transform: translateY(-1px);
+}
+
+.option.selected {
+  border: 0 !important;
+  padding: 0 !important;
+  background: #f2f8f7 !important;
+  box-shadow: 0 0 0 3px rgba(49, 95, 99, .22), 0 5px 16px rgba(49, 95, 99, .13);
+}
+
+.option img {
+  object-fit: contain !important;
+  aspect-ratio: 130 / 137 !important;
+  border: 0 !important;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.score-label {
+  display: none !important;
+}
+
+.question-guidance {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #526168;
+  font-size: 12px;
+  line-height: 1.55;
+  margin: -7px 0 12px;
+}
+
+.question-guidance span {
+  max-width: 36%;
+}
+
+.question-guidance span:nth-child(2) {
+  text-align: center;
+}
+
+.save-state.error {
+  color: #a34436;
+}
+
+.question-guidance span:last-child {
+  text-align: right;
+}
+
+.question-card[data-question="3"] .question-guidance {
+  margin-bottom: 12px;
+}
+
+@media (max-width: 720px) {
+  .options { gap: 7px; }
+  .question-guidance { font-size: 10px; gap: 5px; }
+  .question-guidance span { max-width: 48%; }
+}

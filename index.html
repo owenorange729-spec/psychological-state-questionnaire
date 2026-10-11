@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>心理状态图像问卷</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="overrides.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">RESEARCH QUESTIONNAIRE</p>
+        <h1>心理状态图像问卷</h1>
+        <p class="subtitle">请根据当前感受选择每行中最符合的一幅图像。</p>
+      </div>
+      <div class="status-chip" aria-label="问卷状态"><span class="status-dot"></span>未诊断性测量</div>
+    </header>
+
+    <section class="notice" aria-label="说明">
+      本问卷用于研究或筛查记录，不替代专业心理评估。请在安静、没有他人干扰的情况下完成。
+    </section>
+
+    <section class="panel respondent-panel" aria-labelledby="respondent-title">
+      <div class="section-heading"><span class="section-number">01</span><div><h2 id="respondent-title">填写基本信息</h2><p>仅填写本次研究需要的信息。</p></div></div>
+      <label class="field-label" for="participantCode">被试编号 <span>必填</span></label>
+      <input id="participantCode" class="text-input" type="text" inputmode="text" maxlength="80" placeholder="请输入被试编号" />
+      <p id="nameError" class="field-error" role="alert"></p>
+    </section>
+
+    <form id="surveyForm" novalidate>
+      <section class="panel question-panel" aria-labelledby="question-title">
+        <div class="section-heading"><span class="section-number">02</span><div><h2 id="question-title">选择最符合的图像</h2><p>每道题请选择一张图像。所有选项按从左到右的顺序记录。</p></div></div>
+        <div id="questions" class="questions"></div>
+        <p id="questionError" class="field-error" role="alert"></p>
+        <div class="form-actions"><button id="submitButton" class="primary-button" type="submit">提交问卷</button><span id="saveState" class="save-state" aria-live="polite"></span></div>
+      </section>
+    </form>
+
+    <section id="confirmation" class="panel confirmation-panel" hidden aria-live="polite">
+      <div class="confirmation-icon">✓</div><div><h2>本次回答已保存</h2><p id="confirmationText"></p></div>
+      <button id="newResponseButton" class="secondary-button" type="button">填写下一份</button>
+    </section>
+
+    <section class="panel management-panel" aria-labelledby="management-title" hidden>
+      <div class="section-heading"><span class="section-number">03</span><div><h2 id="management-title">数据管理与组间比较</h2><p id="storageNotice">演示模式：记录保存在当前浏览器，不会自动同步到其他设备。</p></div></div>
+      <div class="toolbar"><button id="refreshButton" class="secondary-button" type="button">刷新记录</button><button id="exportButton" class="secondary-button" type="button">导出 CSV</button><button id="clearButton" class="text-button" type="button">清空本机记录</button></div>
+      <div class="table-wrap"><table><thead><tr><th>比较</th><th>被试编号</th><th>提交时间</th><th>Q1</th><th>Q2</th><th>Q3</th><th>总分</th><th>管理</th></tr></thead><tbody id="recordsBody"></tbody></table></div>
+      <div class="compare-grid"><div><h3>选择两组记录</h3><p class="muted">勾选记录后分别指定 A 组或 B 组。</p><div id="groupControls" class="group-controls"></div></div><div class="comparison-result" id="comparisonResult"><span class="result-kicker">COMPARE</span><h3>等待选择</h3><p>至少选择一条 A 组和一条 B 组记录，即可查看平均分与差异。</p></div></div>
+    </section>
+
+    <dialog id="editDialog" class="edit-dialog">
+      <form id="editForm" method="dialog">
+        <div class="section-heading"><span class="section-number">EDIT</span><div><h2>修改问卷记录</h2><p>修改被试编号及三道题的分数。</p></div></div>
+        <input id="editId" type="hidden" />
+        <label class="field-label" for="editName">被试编号</label><input id="editName" class="text-input" required maxlength="80" />
+        <div class="score-edit-grid">
+          <label>Q1<select id="editQ1" class="text-input"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+          <label>Q2<select id="editQ2" class="text-input"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+          <label>Q3<select id="editQ3" class="text-input"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+        </div>
+        <div class="dialog-actions"><button id="cancelEdit" class="secondary-button" type="button">取消</button><button class="primary-button" type="submit">保存修改</button></div>
+      </form>
+    </dialog>
+
+    <footer><span>心理学研究界面原型</span><span>数据最小化 · 结果仅供研究使用</span></footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
