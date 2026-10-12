@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" role="img" aria-labelledby="title-choice-15-overflow">
+<title id="title-choice-15-overflow">主导感最大尺寸图像选项</title>
+<rect width="140" height="140" fill="#fff"/>
+<g fill="none" stroke="#101820" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter">
+  <path d="M48 45V10H92V45M40 14H100V37H92M48 37H40V14M48 44H92"/>
+  <path d="M54 23H62M78 23H86M57 26V33M82 26V33M58 36H82"/>
+  <path d="M63 31Q70 38 77 31"/>
+  <path d="M48 45H36V51H10V81H31V111H14V132H53V119H87V132H126V111H109V81H130V51H94V45"/>
+  <path d="M31 81V101M109 81V101M53 119V111H87V119"/>
+  <path d="M17 54H30M110 54H123"/>
+</g>
+</svg>
