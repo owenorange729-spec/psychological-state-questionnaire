@@ -27,6 +27,8 @@
       <label class="field-label" for="participantCode">被试编号 <span>必填</span></label>
       <input id="participantCode" class="text-input" type="text" inputmode="text" maxlength="80" placeholder="请输入被试编号" />
       <p id="nameError" class="field-error" role="alert"></p>
+      <label class="field-label" for="experimentCode">实验编号 <span>选填</span></label>
+      <input id="experimentCode" class="text-input" type="text" inputmode="text" maxlength="80" placeholder="请输入实验编号" />
     </section>
 
     <form id="surveyForm" novalidate>
@@ -46,7 +48,7 @@
     <section class="panel management-panel" aria-labelledby="management-title" hidden>
       <div class="section-heading"><span class="section-number">03</span><div><h2 id="management-title">数据管理与组间比较</h2><p id="storageNotice">演示模式：记录保存在当前浏览器，不会自动同步到其他设备。</p></div></div>
       <div class="toolbar"><button id="refreshButton" class="secondary-button" type="button">刷新记录</button><button id="exportButton" class="secondary-button" type="button">导出 CSV</button><button id="clearButton" class="text-button" type="button">清空本机记录</button></div>
-      <div class="table-wrap"><table><thead><tr><th>比较</th><th>被试编号</th><th>提交时间</th><th>Q1</th><th>Q2</th><th>Q3</th><th>总分</th><th>管理</th></tr></thead><tbody id="recordsBody"></tbody></table></div>
+      <div class="table-wrap"><table><thead><tr><th>比较</th><th>被试编号</th><th>实验编号</th><th>提交时间</th><th>Q1</th><th>Q2</th><th>Q3</th><th>总分</th><th>管理</th></tr></thead><tbody id="recordsBody"></tbody></table></div>
       <div class="compare-grid"><div><h3>选择两组记录</h3><p class="muted">勾选记录后分别指定 A 组或 B 组。</p><div id="groupControls" class="group-controls"></div></div><div class="comparison-result" id="comparisonResult"><span class="result-kicker">COMPARE</span><h3>等待选择</h3><p>至少选择一条 A 组和一条 B 组记录，即可查看平均分与差异。</p></div></div>
     </section>
 
@@ -55,6 +57,7 @@
         <div class="section-heading"><span class="section-number">EDIT</span><div><h2>修改问卷记录</h2><p>修改被试编号及三道题的分数。</p></div></div>
         <input id="editId" type="hidden" />
         <label class="field-label" for="editName">被试编号</label><input id="editName" class="text-input" required maxlength="80" />
+        <label class="field-label" for="editExperimentCode">实验编号</label><input id="editExperimentCode" class="text-input" maxlength="80" />
         <div class="score-edit-grid">
           <label>Q1<select id="editQ1" class="text-input"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
           <label>Q2<select id="editQ2" class="text-input"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
@@ -66,15 +69,13 @@
 
     <footer><span>心理学研究界面原型</span><span>数据最小化 · 结果仅供研究使用</span></footer>
   </main>
-  <script src="config.js"></script>
   <script>
     window.SUPABASE_CONFIG = {
       url: "https://rhsmtjilhddvoqzdjxvk.supabase.co",
       anonKey: "sb_publishable_5v43e1K1fMgHFm3Mv5_ebw_q2NGjebs"
     };
   </script>
-
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
-
