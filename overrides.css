@@ -71,3 +71,7 @@
   .question-guidance { font-size: 10px; gap: 5px; }
   .question-guidance span { max-width: 48%; }
 }
+
+.confirmation-panel[hidden] {
+  display: none !important;
+}
